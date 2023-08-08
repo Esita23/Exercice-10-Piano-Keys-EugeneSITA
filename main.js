@@ -15,7 +15,7 @@ function keyReturn(colorDefault){
   colorDefault.target.style.backgroundColor= '';
 }
 
-// Write a named function with event handler properties...
+// Write a named function with event handler properties
 
 function playNote() {
   const note = document.getElementById(`${this.dataset.note}`);
@@ -54,7 +54,7 @@ nextOne.onclick = function() {
   document.getElementById('letter-note-six').innerHTML = 'C';
 }
 
-// Write anonymous event handler property and function for the second progress button
+// Write anonymous event handler property and function for the second progress button...
 
 nextTwo.onclick = function() {
   nextThree.hidden = false;
