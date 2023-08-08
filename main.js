@@ -29,7 +29,7 @@ function addEventListenersToNotes(note) {
 }
 
 
-// Write a loop that runs the array elements through the function
+// Write a loop that runs the array elements through the function...
 
 notes.forEach(addEventListenersToNotes);
 // These variables store the buttons that progress the user through the lyrics
