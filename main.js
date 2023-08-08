@@ -23,9 +23,9 @@ function playNote() {
   note.play();
 }
 function addEventListenersToNotes(note) {
-  note.addEventListener('mousedown', keyPlay); // Lorsque la souris est enfoncée sur une touche, change sa couleur de fond
-  note.addEventListener('mouseup', keyReturn); // Lorsque la souris est relâchée sur une touche, renvoie sa couleur de fond à sa valeur par défaut
-  note.addEventListener('click', playNote); // Lorsqu'une touche est cliquée, joue sa note correspondante
+  note.addEventListener('mousedown', keyPlay); 
+  note.addEventListener('mouseup', keyReturn); 
+  note.addEventListener('click', playNote); 
 }
 
 
@@ -62,7 +62,7 @@ nextTwo.onclick = function() {
   document.getElementById('word-five').innerHTML = 'DEAR';
   document.getElementById('word-six').innerHTML= 'FRI-';
    lastLyric.style.display ='inline-block'; 
-   document.getElementById ('column-optional').style.backgroundColor ='yellow'
+   document.getElementById ('column-optional').style.backgroundColor ='blue'
    
 }
 // Write anonymous event handler property and function for the third progress button
@@ -82,6 +82,7 @@ nextThree.onclick= function(){
     document.querySelector('# letter-note-five ').innerHTML =' G ';
     document.querySelector("#word-six").innerHTML="YOU!";
     document.querySelector('#letter-note-six').innerHTML='E';
+    lastLyric.style.display ='none'; 
 }
 // This is the event handler property and function for the startOver button
 startOver.onclick = function() {
@@ -99,5 +100,6 @@ startOver.onclick = function() {
   document.getElementById('letter-note-five').innerHTML = 'C';
   document.getElementById('word-six').innerHTML = 'YOU!';
   document.getElementById('letter-note-six').innerHTML = 'B';
+  lastLyric.style.display ='none'; 
 }
 // Assigner les noms des touches et des notes musicales à des variables
