@@ -10,26 +10,28 @@ function keyPlay (changeColor){
  changeColor.target.style.backgroundColor='blue';
 
 }
+
 function keyReturn(colorDefault){
   colorDefault.target.style.backgroundColor= '';
 }
+
 // Write a named function with event handler properties
 
-function assignEvents(note){
-  note.addEventListener('mousedown', function(changeColor) {
-    keyPlay(changeColor);
-  });
+function playNote() {
+  const note = document.getElementById(`${this.dataset.note}`);
+  note.currentTime = 0;
+  note.play();
+}
+function addEventListenersToNotes(note) {
+  note.addEventListener('mousedown', keyPlay); // Lorsque la souris est enfoncée sur une touche, change sa couleur de fond
+  note.addEventListener('mouseup', keyReturn); // Lorsque la souris est relâchée sur une touche, renvoie sa couleur de fond à sa valeur par défaut
+  note.addEventListener('click', playNote); // Lorsqu'une touche est cliquée, joue sa note correspondante
+}
 
-  note.addEventListener('mouseup', function(colorDefault) {
-    keyReturn(colorDefault);
-  });
-};
 
 // Write a loop that runs the array elements through the function
 
-notes.forEach(keyPlay,(notes)=>{
-  assignEvents(notes);
-});
+notes.forEach(addEventListenersToNotes);
 // These variables store the buttons that progress the user through the lyrics
 let nextOne = document.getElementById('first-next-line');
 let nextTwo = document.getElementById('second-next-line');
@@ -54,10 +56,33 @@ nextOne.onclick = function() {
 
 // Write anonymous event handler property and function for the second progress button
 
-
+nextTwo.onclick = function() {
+  nextThree.hidden = false;
+  nextTwo.hidden = true;
+  document.getElementById('word-five').innerHTML = 'DEAR';
+  document.getElementById('word-six').innerHTML= 'FRI-';
+   lastLyric.style.display ='inline-block'; 
+   document.getElementById ('column-optional').style.backgroundColor ='yellow'
+   
+}
 // Write anonymous event handler property and function for the third progress button
 
-
+nextThree.onclick= function(){
+  startOver.hidden=false; 
+  nextThree.hidden=true;  
+    document.getElementById("word-one").innerText="HAP-";
+    document.querySelector("#letter-note-one").innerText='F' ;
+    document.querySelector("#word-two").innerText="PY" ;
+    document.querySelector("#letter-note-two").innerText='F' ;
+    document.querySelector("#word-three").innerText="BIRTH-" ;
+    document.querySelector('#letter-note-three').innerText ="G" ; 
+    document.querySelector("# word-four ").innerText ="DAY " ; 
+    document.querySelector('# letter -note-four ').innerHTML =' F '; 
+    document.querySelector('# wor d-f ive ').innerHTML =' T O ' ;
+    document.querySelector('# letter-note-five ').innerHTML =' G ';
+    document.querySelector("#word-six").innerHTML="YOU!";
+    document.querySelector('#letter-note-six').innerHTML='E';
+}
 // This is the event handler property and function for the startOver button
 startOver.onclick = function() {
   nextOne.hidden = false;
@@ -75,3 +100,4 @@ startOver.onclick = function() {
   document.getElementById('word-six').innerHTML = 'YOU!';
   document.getElementById('letter-note-six').innerHTML = 'B';
 }
+// Assigner les noms des touches et des notes musicales à des variables
